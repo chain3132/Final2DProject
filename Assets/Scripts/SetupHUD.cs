@@ -97,9 +97,11 @@ public class SetupHUD : MonoBehaviour
 
     public void OnFeed()
     {
-        
+        MiniGamHandle.instance.OnStartEatingMiniGame();
         petsData[index].Drink();
         petsData[index].Eat();
+         
+        
     }
     public void OnPlay()
     {
