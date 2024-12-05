@@ -72,7 +72,7 @@ public abstract class Pet
     // Behaviour
     public abstract void Eat();
     public abstract void Drink();
-    public virtual void  Play() {
+    public virtual void  Clean() {
         Debug.Log("The pet is playing.");
     }
 }

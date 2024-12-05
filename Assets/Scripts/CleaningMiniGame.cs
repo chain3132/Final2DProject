@@ -7,12 +7,11 @@ public class CleaningMiniGame : MonoBehaviour
 {
    public Transform centerPoint;    // The center of the circular area (can be the middle of the screen)
     public float radius = 200f;      // The radius within which the player needs to move the mouse
-    public Image progressCircle;    // A UI element to show the progress (optional)
     public float requiredCircleTime = 3f; // The time to complete the circle in seconds
 
     private bool isInProgress = false;
     private float angleTravelled = 0f;   // The accumulated angle of the mouse movement
-    private float timeSpentInCircle = 0f;  // Time spent within the required circular motion
+    private float timeSpentInCircle = 3f;  // Time spent within the required circular motion
     private Vector3 lastMousePosition;
 
     private void Update()
@@ -21,7 +20,6 @@ public class CleaningMiniGame : MonoBehaviour
         {
             // Track the mouse position
             Vector3 currentMousePosition = Input.mousePosition;
-            Vector3 deltaMouse = currentMousePosition - lastMousePosition;
             lastMousePosition = currentMousePosition;
 
             // Calculate the direction of movement relative to the center
@@ -34,14 +32,7 @@ public class CleaningMiniGame : MonoBehaviour
                 angleTravelled = angle;
                 timeSpentInCircle += Time.deltaTime;
             }
-
-            // Visual progress feedback (could be a progress bar, etc.)
-            if (progressCircle != null)
-            {
-                float progress = timeSpentInCircle / requiredCircleTime;
-                progressCircle.fillAmount = Mathf.Clamp01(progress);
-            }
-
+            
             // Check if the player has completed the circular motion
             if (timeSpentInCircle >= requiredCircleTime)
             {
@@ -50,8 +41,9 @@ public class CleaningMiniGame : MonoBehaviour
         }
     }
 
-    public void StartMiniGame()
+    public void Start()
     {
+        centerPoint = GameObject.Find("CleaningCenter").transform;
         isInProgress = true;
         timeSpentInCircle = 0f;
         angleTravelled = 0f;

@@ -8,7 +8,7 @@ public class Dragon : Pet
     {
         base.Init(petName, age, hunger, happiness,thirst );
     }
-    public override void Play()
+    public override void Clean()
     {
         CurrentHappiness += 2;
     }

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class SetupHUD : MonoBehaviour
 {
+    [SerializeField]private Sprite[] spritePets;
     int index ;
     [Header("Pet Detail Elements")]
     [SerializeField] private TextMeshProUGUI petNameText;
@@ -98,17 +99,32 @@ public class SetupHUD : MonoBehaviour
     public void OnFeed()
     {
         MiniGamHandle.instance.OnStartEatingMiniGame();
-        petsData[index].Drink();
         petsData[index].Eat();
          
         
     }
-    public void OnPlay()
+    public void OnDink()
     {
-        petsData[index].Play();
+        MiniGamHandle.instance.OnStartDrinkMiniGame();
+        petsData[index].Drink();
     }
     public void OnClean()
     {
+        Sprite sprite = null;
+        petsData[index].Clean();
+        switch (GameManager.instance.selectedPet)
+        {
+            case GameManager.PetType.Dragon:
+                sprite = spritePets[0];
+                break;
+            case GameManager.PetType.Unicon:
+                sprite = spritePets[1];
+                break;
+            case GameManager.PetType.Griffon:
+                sprite = spritePets[2];
+                break;
+        }
+        MiniGamHandle.instance.OnStartCleaningMiniGame(sprite);
         
     }
 }
