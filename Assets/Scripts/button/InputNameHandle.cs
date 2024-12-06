@@ -12,6 +12,6 @@ public class InputNameHandle : MonoBehaviour
     {
         string petName = inputField.text;
         GameManager.instance.SetPetName(petName);
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(2);
     }
 }

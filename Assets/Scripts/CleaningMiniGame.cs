@@ -12,7 +12,7 @@ public class CleaningMiniGame : MonoBehaviour
     private bool isInProgress = false;
     private float angleTravelled = 0f;   // The accumulated angle of the mouse movement
     private float timeSpentInCircle = 3f;  // Time spent within the required circular motion
-    private Vector3 lastMousePosition;
+    
 
     private void Update()
     {
@@ -20,7 +20,7 @@ public class CleaningMiniGame : MonoBehaviour
         {
             // Track the mouse position
             Vector3 currentMousePosition = Input.mousePosition;
-            lastMousePosition = currentMousePosition;
+            
 
             // Calculate the direction of movement relative to the center
             Vector3 direction = currentMousePosition - centerPoint.position;
@@ -47,7 +47,7 @@ public class CleaningMiniGame : MonoBehaviour
         isInProgress = true;
         timeSpentInCircle = 0f;
         angleTravelled = 0f;
-        lastMousePosition = Input.mousePosition;
+        
     }
 
     private void CompleteMiniGame()

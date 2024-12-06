@@ -75,4 +75,13 @@ public abstract class Pet
     public virtual void  Clean() {
         Debug.Log("The pet is playing.");
     }
+
+    public bool IsDead() {
+        if (CurrentHunger <= 0 || CurrentThirst <= 0 || CurrentHappiness <= 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

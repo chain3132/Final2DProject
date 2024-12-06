@@ -23,4 +23,6 @@ public class Griffon : Pet
     {
         CurrentThirst += 20;
     }
+
+   
 }

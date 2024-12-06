@@ -48,6 +48,7 @@ public class MiniGamHandle : MonoBehaviour
     {
         ManageButton(false);
         MinigameCanvas.SetActive(true);
+        cleaningCenter.gameObject.SetActive(true);
         cleaningCenter.sprite = sprite;
         Instantiate(cleaningPrefab, cleaningTransform);
     }
@@ -65,6 +66,7 @@ public class MiniGamHandle : MonoBehaviour
         ManageButton(true);
         MinigameCanvas.SetActive(false);
         EattingTextObject.SetActive(false);
+        DrinkObject.SetActive(false);
         cleaningCenter.gameObject.SetActive(false);
     }
 

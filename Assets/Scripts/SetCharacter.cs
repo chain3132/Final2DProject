@@ -17,6 +17,7 @@ public class SetCharacter : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         switch (GameManager.instance.selectedPet)
         {
             case GameManager.PetType.Dragon:

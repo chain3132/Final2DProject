@@ -8,8 +8,9 @@ using UnityEngine.UI;
 
 public class SetupHUD : MonoBehaviour
 {
+    public static SetupHUD instance;
     [SerializeField]private Sprite[] spritePets;
-    int index ;
+    public int index ;
     [Header("Pet Detail Elements")]
     [SerializeField] private TextMeshProUGUI petNameText;
     [SerializeField] private TextMeshProUGUI ageText;
@@ -18,14 +19,24 @@ public class SetupHUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI happinessText;
     
     [Header("Pet Data")]
-    private  List<Pet> petsData = new List<Pet>(){null,null,null};
+    public  List<Pet> petsData = new List<Pet>(){null,null,null};
     
     [Header("Pet Detail Bar")]
     [SerializeField] private Slider hungerBar;
     [SerializeField] private Slider thirstBar;
     [SerializeField] private Slider happinessBar;
+    
+    
     private void Awake()
-    { 
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         petsData[0] = new Dragon();
         petsData[0].Init(GameManager.instance.PetName, 2, 50, 10, 70);
 

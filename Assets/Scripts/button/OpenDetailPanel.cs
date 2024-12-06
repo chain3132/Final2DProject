@@ -6,7 +6,7 @@ public class OpenDetailPanel : MonoBehaviour
 {
     [SerializeField] private GameObject DetailPanelObject;
     
-    public void OnOpneDetailPanel()
+    public void OnOpenDetailPanel()
     {
         DetailPanelObject.SetActive(true);
     }
